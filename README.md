@@ -10,9 +10,23 @@
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+Desc: This is a custom Button With loading progress animation with status scuess and error
+
+        1.Scuess can set Transition
+        2.Error can set reminder message
+
 1.Demo With (Error,Scuess,Transition)
 
-![circledemo](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/firstDemo.gif)
+![LoadingButton](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/firstDemo.gif)
+
+2.Setting
+
+![LoadingButton](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/setting.png)
+
+3.Error Color
+
+![LoadingButton](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/setting1.png)
+
 
 2.Scuess With Tick Animation
 
@@ -25,7 +39,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 3.Error With Crossed Animation
 
     loadingButton.stopLoading(false, completed: {
-        print("Scuess Completed")
+        print("Error Completed")
     })
 
 ![LoadingButton](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/thirdDemo.gif)
