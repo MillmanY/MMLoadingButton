@@ -62,6 +62,10 @@ class SecondViewController: UIViewController {
 
     @IBAction func dismissAction () {
         self.dismissViewControllerAnimated(true, completion: nil)
+        
+        self.dismissViewControllerAnimated(true) { 
+            
+        }
     }
     /*
     // MARK: - Navigation
