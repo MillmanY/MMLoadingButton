@@ -10,6 +10,40 @@
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
+1.Demo With (Error,Scuess,Transition)
+
+![circledemo](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/firstDemo.gif)
+
+2.Scuess With Tick Animation
+
+    loadingButton.stopLoading(true, completed: {
+        print("Scuess Completed")
+    })
+    
+![LoadingButton](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/secondDemo.gif)
+
+3.Error With Crossed Animation
+
+    loadingButton.stopLoading(false, completed: {
+        print("Scuess Completed")
+    })
+
+![LoadingButton](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/thirdDemo.gif)
+
+4.Error With Crossed and Animation
+
+    loadingButton.stopWithError("Error !!", hideInternal: 2, completed: {
+        print ("Fail Message Completed")
+    })
+
+![LoadingButton](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/fourDemo.gif)
+
+
+5.Add Transition With function
+
+    self.loadingBtn.addScuessPresentVC(vc)
+
+![LoadingButton](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/fiveDemo.gif)
 
 ## Installation
 
