@@ -3,9 +3,4 @@ use_frameworks!
 target 'MMLoadingButton_Example' do
   pod 'MMLoadingButton', :path => '../'
 
-  target 'MMLoadingButton_Tests' do
-    inherit! :search_paths
-
-    
-  end
 end

@@ -1,0 +1,6 @@
+framework module Pods_MMLoadingButton_Example {
+  umbrella header "Pods-MMLoadingButton_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="MMLoadingButton_Example" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +17,221 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Account" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4SZ-ou-xTi">
+                                <rect key="frame" x="20" y="120" width="555" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Xu1-Ld-c8R"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mJx-Rj-7pJ">
+                                <rect key="frame" x="20" y="165" width="555" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Vsu-cl-4fM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MMLoadingButton" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WTV-mj-bzI">
+                                <rect key="frame" x="20" y="28" width="555" height="84"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="84" id="EEt-ZB-oD4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="italicSystem" pointSize="42"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vKt-Cd-lUy" customClass="MMLoadingButton" customModule="MMLoadingButton">
+                                <rect key="frame" x="20" y="245" width="560" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.5450980392" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="560" id="LQ2-ab-UOe"/>
+                                    <constraint firstAttribute="height" constant="40" id="r1J-Ip-w7k"/>
+                                </constraints>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
+                                        <color key="value" red="1" green="0.38823529411764707" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="LQ2-ab-UOe"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="loadAction" destination="vXZ-lx-hvc" eventType="touchUpInside" id="p6B-TC-agd"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="vKt-Cd-lUy" secondAttribute="bottom" constant="100" id="21h-5s-9te"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WTV-mj-bzI" secondAttribute="trailing" constant="5" id="42L-7H-xMy"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="vKt-Cd-lUy" secondAttribute="leading" id="Ex2-78-a85"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mJx-Rj-7pJ" secondAttribute="trailing" constant="5" id="QfX-ou-juW"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="WTV-mj-bzI" secondAttribute="leading" id="YvY-6H-Z7D"/>
+                            <constraint firstItem="WTV-mj-bzI" firstAttribute="leading" secondItem="4SZ-ou-xTi" secondAttribute="trailing" constant="-555" id="Z0J-Rh-FhX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="4SZ-ou-xTi" secondAttribute="trailing" constant="5" id="ZYA-vn-Smo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vKt-Cd-lUy" secondAttribute="trailing" id="brE-g1-MLX"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="mJx-Rj-7pJ" secondAttribute="leading" id="fRe-Wu-pL4"/>
+                            <constraint firstItem="vKt-Cd-lUy" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="fc7-0n-KuZ"/>
+                            <constraint firstItem="WTV-mj-bzI" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="i8Y-gP-Nws"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="4SZ-ou-xTi" secondAttribute="leading" id="qH5-To-4ml"/>
+                            <constraint firstItem="vKt-Cd-lUy" firstAttribute="top" secondItem="mJx-Rj-7pJ" secondAttribute="bottom" constant="50" id="sB1-6J-a6N"/>
+                            <constraint firstItem="4SZ-ou-xTi" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="100" id="saI-55-X3Q"/>
+                            <constraint firstItem="mJx-Rj-7pJ" firstAttribute="top" secondItem="4SZ-ou-xTi" secondAttribute="bottom" constant="15" id="uDp-9w-RLk"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="21h-5s-9te"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" id="3RQ-Dd-aRh"/>
+                    <connections>
+                        <outlet property="loadingBtn" destination="vKt-Cd-lUy" id="4le-zM-7fS"/>
+                        <outlet property="txtAccount" destination="4SZ-ou-xTi" id="gLr-hh-Dpe"/>
+                        <outlet property="txtPwd" destination="mJx-Rj-7pJ" id="uMA-FA-0pT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="280" y="323"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="xbN-M6-v6N">
+            <objects>
+                <viewController storyboardIdentifier="Second" modalPresentationStyle="overCurrentContext" id="TnA-sM-sc1" customClass="SecondViewController" customModule="MMLoadingButton_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wv5-WC-5ow"/>
+                        <viewControllerLayoutGuide type="bottom" id="l5g-ud-mRt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xsn-1V-U6s">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kNA-SB-lyv">
+                                <rect key="frame" x="20" y="550" width="560" height="30"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="cVB-RO-5wJ"/>
+                                </constraints>
+                                <state key="normal" image="delete">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissAction" destination="TnA-sM-sc1" eventType="touchUpInside" id="G2X-bR-Sbc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5dj-dg-bqJ" customClass="MMLoadingButton" customModule="MMLoadingButton">
+                                <rect key="frame" x="20" y="55" width="560" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.5450980392" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="aVb-k7-doc"/>
+                                    <constraint firstAttribute="width" constant="560" id="gGo-Sl-oyO"/>
+                                </constraints>
+                                <state key="normal" title="ScuessButton">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
+                                        <color key="value" red="1" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="gGo-Sl-oyO"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="loadAction" destination="vXZ-lx-hvc" eventType="touchUpInside" id="OgK-Ck-dm5"/>
+                                    <action selector="scuessAction" destination="TnA-sM-sc1" eventType="touchUpInside" id="IMu-Oz-cjz"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0e-nG-tFx" customClass="MMLoadingButton" customModule="MMLoadingButton">
+                                <rect key="frame" x="20" y="110" width="560" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.5450980392" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6iY-Qr-QSC"/>
+                                    <constraint firstAttribute="width" constant="560" id="7Rt-SC-ffe"/>
+                                </constraints>
+                                <state key="normal" title="Error">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
+                                        <color key="value" red="1" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7Rt-SC-ffe"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="errorAction" destination="TnA-sM-sc1" eventType="touchUpInside" id="yZ9-I0-AOb"/>
+                                    <action selector="loadAction" destination="vXZ-lx-hvc" eventType="touchUpInside" id="t88-BG-d1s"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPr-in-Uh8" customClass="MMLoadingButton" customModule="MMLoadingButton">
+                                <rect key="frame" x="20" y="164" width="560" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.5450980392" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="560" id="px0-UA-XU7"/>
+                                    <constraint firstAttribute="height" constant="40" id="vKu-TN-Vri"/>
+                                </constraints>
+                                <state key="normal" title="ErrorMessage">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
+                                        <color key="value" red="1" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="px0-UA-XU7"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="errorMsgAction" destination="TnA-sM-sc1" eventType="touchUpInside" id="scG-5o-k4d"/>
+                                    <action selector="loadAction" destination="vXZ-lx-hvc" eventType="touchUpInside" id="mki-LT-f77"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="rPr-in-Uh8" secondAttribute="trailing" id="3hg-03-EyD"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="rPr-in-Uh8" secondAttribute="leading" id="3xY-FQ-gQl"/>
+                            <constraint firstItem="rPr-in-Uh8" firstAttribute="top" secondItem="v0e-nG-tFx" secondAttribute="bottom" constant="14" id="8Aa-dY-Dzp"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="v0e-nG-tFx" secondAttribute="leading" id="8tc-gd-0BO"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="kNA-SB-lyv" secondAttribute="leading" id="HEn-9p-fL9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="5dj-dg-bqJ" secondAttribute="trailing" id="Jwj-aG-rvC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kNA-SB-lyv" secondAttribute="trailing" id="OiC-va-jhx"/>
+                            <constraint firstItem="v0e-nG-tFx" firstAttribute="top" secondItem="5dj-dg-bqJ" secondAttribute="bottom" constant="15" id="Qv5-n8-19S"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="5dj-dg-bqJ" secondAttribute="leading" id="WU1-Df-ALF"/>
+                            <constraint firstItem="l5g-ud-mRt" firstAttribute="top" secondItem="kNA-SB-lyv" secondAttribute="bottom" constant="20" id="kNW-Jr-I2j"/>
+                            <constraint firstItem="5dj-dg-bqJ" firstAttribute="top" secondItem="wv5-WC-5ow" secondAttribute="bottom" constant="35" id="pIg-lh-v8U"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="v0e-nG-tFx" secondAttribute="trailing" id="rx4-OC-0v1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="errMsg" destination="rPr-in-Uh8" id="YXo-vQ-qNf"/>
+                        <outlet property="error" destination="v0e-nG-tFx" id="yFf-py-9RX"/>
+                        <outlet property="scuess" destination="5dj-dg-bqJ" id="2fR-uZ-TkB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ez9-0u-qm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="942" y="323"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="delete" width="30" height="30"/>
+    </resources>
 </document>

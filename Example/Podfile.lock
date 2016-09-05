@@ -1,0 +1,14 @@
+PODS:
+  - MMLoadingButton (0.1.0)
+
+DEPENDENCIES:
+  - MMLoadingButton (from `../`)
+
+EXTERNAL SOURCES:
+  MMLoadingButton:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MMLoadingButton: 4fe06599ec26de61bd4ba84523f1be58f745b019
+
+COCOAPODS: 0.39.0
