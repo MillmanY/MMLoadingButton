@@ -15,6 +15,12 @@ public class MMLoadingButton: UIButton {
             errorLabel.textColor = errorColor
         }
     }
+
+    @IBInspectable public var errFontSize:CGFloat = 17.0 {
+        didSet {
+            errorLabel.font = UIFont.systemFontOfSize(errFontSize)
+        }
+    }
     
     private var completed:(()->Void)?
     private var originalColor:UIColor!

@@ -57,6 +57,9 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
                                         <color key="value" red="1" green="0.38823529411764707" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="errFontSize">
+                                        <real key="value" value="17"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -74,12 +77,14 @@
                             <constraint firstAttribute="trailingMargin" secondItem="WTV-mj-bzI" secondAttribute="trailing" constant="5" id="42L-7H-xMy"/>
                             <constraint firstAttribute="leadingMargin" secondItem="vKt-Cd-lUy" secondAttribute="leading" id="Ex2-78-a85"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mJx-Rj-7pJ" secondAttribute="trailing" constant="5" id="QfX-ou-juW"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="vKt-Cd-lUy" secondAttribute="leading" id="Yap-Cx-kDh"/>
                             <constraint firstAttribute="leadingMargin" secondItem="WTV-mj-bzI" secondAttribute="leading" id="YvY-6H-Z7D"/>
                             <constraint firstItem="WTV-mj-bzI" firstAttribute="leading" secondItem="4SZ-ou-xTi" secondAttribute="trailing" constant="-555" id="Z0J-Rh-FhX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="4SZ-ou-xTi" secondAttribute="trailing" constant="5" id="ZYA-vn-Smo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="vKt-Cd-lUy" secondAttribute="trailing" id="brE-g1-MLX"/>
                             <constraint firstAttribute="leadingMargin" secondItem="mJx-Rj-7pJ" secondAttribute="leading" id="fRe-Wu-pL4"/>
                             <constraint firstItem="vKt-Cd-lUy" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="fc7-0n-KuZ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="vKt-Cd-lUy" secondAttribute="trailing" id="hch-em-A9M"/>
                             <constraint firstItem="WTV-mj-bzI" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="8" id="i8Y-gP-Nws"/>
                             <constraint firstAttribute="leadingMargin" secondItem="4SZ-ou-xTi" secondAttribute="leading" id="qH5-To-4ml"/>
                             <constraint firstItem="vKt-Cd-lUy" firstAttribute="top" secondItem="mJx-Rj-7pJ" secondAttribute="bottom" constant="50" id="sB1-6J-a6N"/>
@@ -88,6 +93,8 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Ex2-78-a85"/>
+                                <exclude reference="brE-g1-MLX"/>
                                 <exclude reference="21h-5s-9te"/>
                             </mask>
                         </variation>
