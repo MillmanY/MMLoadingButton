@@ -34,7 +34,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 3.Error With Crossed Animation
 
     loadingButton.stopLoading(false, completed: {
-        print("Scuess Completed")
+        print("Error Completed")
     })
 
 ![LoadingButton](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/thirdDemo.gif)
