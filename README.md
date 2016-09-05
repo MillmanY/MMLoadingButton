@@ -12,7 +12,16 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 ## Requirements
 1.Demo With (Error,Scuess,Transition)
 
-![circledemo](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/firstDemo.gif)
+![LoadingButton](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/firstDemo.gif)
+
+2.Setting
+
+![LoadingButton](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/setting.png)
+
+3.Error Color
+
+![LoadingButton](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/setting1.png)
+
 
 2.Scuess With Tick Animation
 
