@@ -17,7 +17,7 @@ Desc: This is a custom Button With loading progress animation with status scuess
 
 1.Demo With (Error,Scuess,Transition)
 
-![LoadingButton](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/firstDemo.gif)
+![LoadingButton](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/demo.gif)
 
 2.Setting
 
