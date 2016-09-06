@@ -14,6 +14,7 @@ Desc: This is a custom Button With loading progress animation with status scuess
 
         1.Scuess can set Transition
         2.Error can set reminder message
+        3.Error message will autoLayout when show
 
 1.Demo With (Error,Scuess,Transition)
 
@@ -23,9 +24,9 @@ Desc: This is a custom Button With loading progress animation with status scuess
 
 ![LoadingButton](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/setting.png)
 
-3.Error Color
+3.Setting (Error Color , Top Margin ,Font)
 
-![LoadingButton](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/setting1.png)
+![LoadingButton](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/settingInfo.png)
 
 
 2.Scuess With Tick Animation
