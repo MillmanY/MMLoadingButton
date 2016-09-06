@@ -22,6 +22,16 @@ public class MMLoadingButton: UIButton {
         }
     }
     
+    @IBInspectable public var errLabelMargin:CGFloat = 5.0 {
+        didSet {
+            if errTopConstraint != nil{
+                errTopConstraint.constant = errLabelMargin
+            }
+        }
+    }
+    private var errTopConstraint:NSLayoutConstraint!
+    private var originBottomConstant:CGFloat = 0.0
+    private var bottomConstraint:NSLayoutConstraint?
     private var completed:(()->Void)?
     private var originalColor:UIColor!
     private var originalRadius:CGFloat = 0.0
@@ -49,14 +59,18 @@ public class MMLoadingButton: UIButton {
         self.superview?.addSubview(errorLabel)
         let height = NSLayoutConstraint.init(item: errorLabel, attribute: .Height, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: 30)
         let width = NSLayoutConstraint(item: errorLabel, attribute: .Width, relatedBy: .Equal, toItem: nil, attribute: .NotAnAttribute, multiplier: 1.0, constant: screenWidth-40)
-        let top = NSLayoutConstraint.init(item: errorLabel, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Bottom, multiplier: 1.0, constant: 5)
+        errTopConstraint = NSLayoutConstraint.init(item: errorLabel, attribute: .Top, relatedBy: .Equal, toItem: self, attribute: .Bottom, multiplier: 1.0, constant: errLabelMargin)
         let center = NSLayoutConstraint.init(item: errorLabel, attribute: .CenterX, relatedBy: .Equal, toItem: self, attribute: .CenterX, multiplier: 1.0, constant: 0.0)
-        self.superview?.addConstraints([width,center,top,height])
+        self.superview?.addConstraints([width,center,errTopConstraint,height])
         errorLabel.clipsToBounds = false
         errorLabel.backgroundColor = UIColor.clearColor()
         errorLabel.textAlignment = .Center
         errorLabel.text = ""
         errorLabel.alpha = 0.0
+        bottomConstraint = self.getBottomConstraint()
+        if let b = bottomConstraint {
+            originBottomConstant = b.constant
+        }
     }
     
     private func setUp() {
@@ -155,9 +169,29 @@ public class MMLoadingButton: UIButton {
     }
     
     private func showErrorLabel(isShow:Bool) {
-        UIView.animateWithDuration(0.3) { 
+        
+        if let b = bottomConstraint {
+            let height =  CGRectGetHeight(errorLabel.frame) + errLabelMargin
+            b.constant = (isShow) ? b.constant+height : originBottomConstant
+        }
+        
+        UIView.animateWithDuration(0.3) {
+            self.superview?.layoutIfNeeded()
             self.errorLabel.alpha = (isShow) ? 1.0 :0.0
         }
+    }
+    
+    private func getBottomConstraint () -> NSLayoutConstraint? {
+        for c in self.superview!.constraints {
+            if let second = c.secondItem as? MMLoadingButton
+                where (c.firstAttribute == .Top &&
+                       c.firstItem !== errorLabel &&
+                       second === self){
+            
+                return c
+            }
+        }
+        return nil
     }
 }
 

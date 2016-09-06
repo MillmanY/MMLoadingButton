@@ -58,7 +58,10 @@
                                         <color key="value" red="1" green="0.38823529411764707" blue="0.38823529411764707" alpha="1" colorSpace="calibratedRGB"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="errFontSize">
-                                        <real key="value" value="17"/>
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="errLabelMargin">
+                                        <real key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <variation key="default">
@@ -70,12 +73,36 @@
                                     <action selector="loadAction" destination="vXZ-lx-hvc" eventType="touchUpInside" id="p6B-TC-agd"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q4W-ZB-dew">
+                                <rect key="frame" x="180" y="293" width="240" height="128"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Demo Push Bottom View when show Error Message" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7U8-2b-ESh">
+                                        <rect key="frame" x="8" y="8" width="224" height="112"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="7U8-2b-ESh" firstAttribute="top" secondItem="q4W-ZB-dew" secondAttribute="top" constant="8" id="6FR-G1-I2l"/>
+                                    <constraint firstItem="7U8-2b-ESh" firstAttribute="leading" secondItem="q4W-ZB-dew" secondAttribute="leading" constant="8" id="Cgc-k4-eUr"/>
+                                    <constraint firstAttribute="width" constant="240" id="Iam-iL-TrS"/>
+                                    <constraint firstAttribute="height" constant="128" id="P5h-ZM-scC"/>
+                                    <constraint firstAttribute="trailing" secondItem="7U8-2b-ESh" secondAttribute="trailing" constant="8" id="ZCV-rx-0Nz"/>
+                                    <constraint firstAttribute="bottom" secondItem="7U8-2b-ESh" secondAttribute="bottom" constant="8" id="t4v-ym-Hwn"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.60000002384185791" green="0.40000000596046448" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="vKt-Cd-lUy" secondAttribute="bottom" constant="100" id="21h-5s-9te"/>
                             <constraint firstAttribute="trailingMargin" secondItem="WTV-mj-bzI" secondAttribute="trailing" constant="5" id="42L-7H-xMy"/>
+                            <constraint firstItem="q4W-ZB-dew" firstAttribute="top" secondItem="vKt-Cd-lUy" secondAttribute="bottom" constant="8" id="6En-OH-GeK"/>
+                            <constraint firstItem="q4W-ZB-dew" firstAttribute="top" secondItem="vKt-Cd-lUy" secondAttribute="bottom" constant="8" id="Dzm-Pe-xM6"/>
                             <constraint firstAttribute="leadingMargin" secondItem="vKt-Cd-lUy" secondAttribute="leading" id="Ex2-78-a85"/>
+                            <constraint firstItem="q4W-ZB-dew" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="Ooa-Ko-0Wu"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="q4W-ZB-dew" secondAttribute="bottom" constant="179" id="QKN-Ll-1Q6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mJx-Rj-7pJ" secondAttribute="trailing" constant="5" id="QfX-ou-juW"/>
                             <constraint firstAttribute="leadingMargin" secondItem="vKt-Cd-lUy" secondAttribute="leading" id="Yap-Cx-kDh"/>
                             <constraint firstAttribute="leadingMargin" secondItem="WTV-mj-bzI" secondAttribute="leading" id="YvY-6H-Z7D"/>
@@ -93,9 +120,12 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Z0J-Rh-FhX"/>
                                 <exclude reference="Ex2-78-a85"/>
                                 <exclude reference="brE-g1-MLX"/>
+                                <exclude reference="6En-OH-GeK"/>
                                 <exclude reference="21h-5s-9te"/>
+                                <exclude reference="QKN-Ll-1Q6"/>
                             </mask>
                         </variation>
                     </view>
@@ -160,33 +190,8 @@
                                     <action selector="scuessAction" destination="TnA-sM-sc1" eventType="touchUpInside" id="IMu-Oz-cjz"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0e-nG-tFx" customClass="MMLoadingButton" customModule="MMLoadingButton">
-                                <rect key="frame" x="20" y="110" width="560" height="40"/>
-                                <color key="backgroundColor" red="0.0" green="0.5450980392" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="6iY-Qr-QSC"/>
-                                    <constraint firstAttribute="width" constant="560" id="7Rt-SC-ffe"/>
-                                </constraints>
-                                <state key="normal" title="Error">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
-                                        <color key="value" red="1" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="7Rt-SC-ffe"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="errorAction" destination="TnA-sM-sc1" eventType="touchUpInside" id="yZ9-I0-AOb"/>
-                                    <action selector="loadAction" destination="vXZ-lx-hvc" eventType="touchUpInside" id="t88-BG-d1s"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPr-in-Uh8" customClass="MMLoadingButton" customModule="MMLoadingButton">
-                                <rect key="frame" x="20" y="164" width="560" height="40"/>
+                                <rect key="frame" x="20" y="103" width="560" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.5450980392" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="560" id="px0-UA-XU7"/>
@@ -210,11 +215,37 @@
                                     <action selector="loadAction" destination="vXZ-lx-hvc" eventType="touchUpInside" id="mki-LT-f77"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0e-nG-tFx" customClass="MMLoadingButton" customModule="MMLoadingButton">
+                                <rect key="frame" x="20" y="151" width="560" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.5450980392" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="6iY-Qr-QSC"/>
+                                    <constraint firstAttribute="width" constant="560" id="7Rt-SC-ffe"/>
+                                </constraints>
+                                <state key="normal" title="Error">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
+                                        <color key="value" red="1" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7Rt-SC-ffe"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="errorAction" destination="TnA-sM-sc1" eventType="touchUpInside" id="yZ9-I0-AOb"/>
+                                    <action selector="loadAction" destination="vXZ-lx-hvc" eventType="touchUpInside" id="t88-BG-d1s"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="rPr-in-Uh8" secondAttribute="trailing" id="3hg-03-EyD"/>
                             <constraint firstAttribute="leadingMargin" secondItem="rPr-in-Uh8" secondAttribute="leading" id="3xY-FQ-gQl"/>
+                            <constraint firstItem="rPr-in-Uh8" firstAttribute="top" secondItem="5dj-dg-bqJ" secondAttribute="bottom" constant="8" id="80O-OA-IPU"/>
                             <constraint firstItem="rPr-in-Uh8" firstAttribute="top" secondItem="v0e-nG-tFx" secondAttribute="bottom" constant="14" id="8Aa-dY-Dzp"/>
                             <constraint firstAttribute="leadingMargin" secondItem="v0e-nG-tFx" secondAttribute="leading" id="8tc-gd-0BO"/>
                             <constraint firstAttribute="leadingMargin" secondItem="kNA-SB-lyv" secondAttribute="leading" id="HEn-9p-fL9"/>
@@ -223,9 +254,16 @@
                             <constraint firstItem="v0e-nG-tFx" firstAttribute="top" secondItem="5dj-dg-bqJ" secondAttribute="bottom" constant="15" id="Qv5-n8-19S"/>
                             <constraint firstAttribute="leadingMargin" secondItem="5dj-dg-bqJ" secondAttribute="leading" id="WU1-Df-ALF"/>
                             <constraint firstItem="l5g-ud-mRt" firstAttribute="top" secondItem="kNA-SB-lyv" secondAttribute="bottom" constant="20" id="kNW-Jr-I2j"/>
+                            <constraint firstItem="v0e-nG-tFx" firstAttribute="top" secondItem="rPr-in-Uh8" secondAttribute="bottom" constant="8" id="mh2-ma-gOW"/>
                             <constraint firstItem="5dj-dg-bqJ" firstAttribute="top" secondItem="wv5-WC-5ow" secondAttribute="bottom" constant="35" id="pIg-lh-v8U"/>
                             <constraint firstAttribute="trailingMargin" secondItem="v0e-nG-tFx" secondAttribute="trailing" id="rx4-OC-0v1"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="8Aa-dY-Dzp"/>
+                                <exclude reference="Qv5-n8-19S"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="errMsg" destination="rPr-in-Uh8" id="YXo-vQ-qNf"/>

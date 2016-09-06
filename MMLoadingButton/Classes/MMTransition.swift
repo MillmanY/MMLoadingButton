@@ -65,7 +65,6 @@ public class MMTransition: NSObject,UIViewControllerAnimatedTransitioning {
                     presentedControllerView.backgroundColor = originalColor
                 }, completion: { (_) in
                     transitionContext.completeTransition(true)
-
                 })
             }
         } else {
