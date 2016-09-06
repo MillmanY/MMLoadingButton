@@ -56,9 +56,16 @@ Desc: This is a custom Button With loading progress animation with status scuess
 
 5.Add Transition With function
 
-    self.loadingBtn.addScuessPresentVC(vc)
+        loadingBtn.addScuessPresentVC(vc)
 
 ![LoadingButton](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/fiveDemo.gif)
+
+If you presentViewController with default transition,you can add custom transition use
+
+        loadingBtn.addScuessWithDismissVC()
+
+![LoadingButton](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/sixDemo.gif)
+
 
 6.Auto Push the bottom View when show Error Message
 
