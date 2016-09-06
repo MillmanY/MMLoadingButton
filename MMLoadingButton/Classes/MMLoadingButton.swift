@@ -87,7 +87,7 @@ public class MMLoadingButton: UIButton {
     }
     
     public func startLoading() {
-        self.setShrink(true)
+        self.setShrink(true,shrinkKey:"ShrinkStart")
     }
     
     public func stopWithError(msg:String,hideInternal:NSTimeInterval,completed:(() -> Void)?) {
@@ -110,7 +110,7 @@ public class MMLoadingButton: UIButton {
         self.stateLayer.currentState = (result) ? .Scuess : .Error
     }
     
-    private func setShrink(isShrink:Bool){
+    private func setShrink(isShrink:Bool,shrinkKey:String){
         self.enabled = false
         
         let shrink = CABasicAnimation(keyPath:"bounds.size.width")
@@ -129,9 +129,7 @@ public class MMLoadingButton: UIButton {
         groupA.removedOnCompletion = false
         groupA.fillMode = kCAFillModeForwards
         groupA.delegate = self
-        
-        let animationKey = (isShrink) ? "ShrinkStart" : "ShrinkStop"
-        groupA.setValue(animationKey, forKey: "Animation")
+        groupA.setValue(shrinkKey, forKey: "Animation")
         self.layer.addAnimation(groupA, forKey: "Animation")
     }
     
@@ -145,16 +143,21 @@ public class MMLoadingButton: UIButton {
             switch key {
             case "ShrinkStart":
                 self.stateLayer.currentState = .Loading
-            case "ShrinkStop":
+            case "ShrinkScuess":
                 self.originalState()
                 self.enabled = true
                 if let c = self.completed where (scuessTransition == nil){
                     c()
                 }
-            case "Scale":
+            case "ShrinkError":
+                self.originalState()
+                self.enabled = true
                 if let c = self.completed {
                     c()
                 }
+            case "ShrinkDismiss":
+                self.originalState()
+                self.enabled = true
             default:
                 break
             }
@@ -198,7 +201,7 @@ public class MMLoadingButton: UIButton {
 extension MMLoadingButton:MMStateLayerDelegate {
     func stateFailCompleted() {
         self.showErrorLabel(false)
-        self.setShrink(false)
+        self.setShrink(false,shrinkKey:"ShrinkError")
     }
     
     func stateScuessCompleted() {
@@ -214,7 +217,7 @@ extension MMLoadingButton:MMStateLayerDelegate {
                 }
             }
         } else {
-            self.setShrink(false)
+            self.setShrink(false,shrinkKey:"ShrinkScuess")
         }
     }
 }
@@ -238,7 +241,7 @@ extension MMLoadingButton:UIViewControllerTransitioningDelegate{
             
             let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(duration*Double(NSEC_PER_SEC)))
             dispatch_after(delayTime, dispatch_get_main_queue()) {
-                self.setShrink(false)
+                self.setShrink(false,shrinkKey:"ShrinkDismiss")
             }
         }
         
