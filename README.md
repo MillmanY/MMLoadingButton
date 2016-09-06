@@ -44,7 +44,7 @@ Desc: This is a custom Button With loading progress animation with status scuess
 
 ![LoadingButton](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/thirdDemo.gif)
 
-4.Error With Crossed and Animation
+4.Error With Crossed ,message and Animation
 
     loadingButton.stopWithError("Error !!", hideInternal: 2, completed: {
         print ("Fail Message Completed")
