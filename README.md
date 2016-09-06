@@ -59,6 +59,10 @@ Desc: This is a custom Button With loading progress animation with status scuess
 
 ![LoadingButton](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/fiveDemo.gif)
 
+6.Auto Push the bottom View when show Error Message
+
+![LoadingButton](https://github.com/MillmanY/MMLoadingButton/blob/master/DemoGif/demoPush.gif)
+
 ## Installation
 
 MMLoadingButton is available through [CocoaPods](http://cocoapods.org). To install
