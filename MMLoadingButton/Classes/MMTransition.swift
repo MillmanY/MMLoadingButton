@@ -8,6 +8,10 @@
 
 import UIKit
 
+enum BubbleTransitionMode: Int {
+    case Present, Dismiss
+}
+
 public class MMTransition: NSObject,UIViewControllerAnimatedTransitioning {
     
     var startingPoint = CGPointZero {
@@ -18,14 +22,8 @@ public class MMTransition: NSObject,UIViewControllerAnimatedTransitioning {
     
     var duration = 0.3
     var transitionMode: BubbleTransitionMode = .Present
-
     var bubbleColor: UIColor = .whiteColor()
-    
     private(set) var bubble = UIView()
-
-    @objc enum BubbleTransitionMode: Int {
-        case Present, Dismiss, Pop
-    }
     
     public func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
         return duration
@@ -35,70 +33,92 @@ public class MMTransition: NSObject,UIViewControllerAnimatedTransitioning {
         guard let containerView = transitionContext.containerView() else {
             return
         }
-        
+    
+        let toView = transitionContext.viewForKey(UITransitionContextToViewKey)
+        let fromView = transitionContext.viewForKey(UITransitionContextFromViewKey)
+
         if transitionMode == .Present {
-            let presentedControllerView = transitionContext.viewForKey(UITransitionContextToViewKey)!
-            let originalCenter = presentedControllerView.center
-            let originalSize = presentedControllerView.frame.size
-            let originalColor = presentedControllerView.backgroundColor
+            
+            let originalCenter = toView!.center
+            let originalSize = toView!.frame.size
+            let originalColor = toView!.backgroundColor
             bubble = UIView()
             bubble.frame = frameForBubble(originalCenter, size: originalSize, start: startingPoint)
             bubble.layer.cornerRadius = bubble.frame.size.height / 2
             bubble.center = startingPoint
-            bubble.transform = CGAffineTransformMakeScale(0.001, 0.001)
             bubble.backgroundColor = bubbleColor
+            bubble.transform = CGAffineTransformMakeScale(0.001, 0.001)
             containerView.addSubview(bubble)
             
-            presentedControllerView.center = startingPoint
-            presentedControllerView.transform = CGAffineTransformMakeScale(0.001, 0.001)
-            presentedControllerView.alpha = 0
-            presentedControllerView.backgroundColor = bubbleColor
-            containerView.addSubview(presentedControllerView)
+            toView!.center = startingPoint
+            toView!.transform = CGAffineTransformMakeScale(0.001, 0.001)
+            toView!.alpha = 0
+            toView!.backgroundColor = bubbleColor
+            containerView.addSubview(toView!)
             
             UIView.animateWithDuration(duration, animations: {
                 self.bubble.transform = CGAffineTransformIdentity
-                presentedControllerView.transform = CGAffineTransformIdentity
-                presentedControllerView.center = originalCenter
+                toView!.transform = CGAffineTransformIdentity
+                toView!.center = originalCenter
             }) { (_) in
                 UIView.animateWithDuration(0.3, animations: {
-                    presentedControllerView.alpha = 1
-                    presentedControllerView.backgroundColor = originalColor
-                }, completion: { (_) in
-                    transitionContext.completeTransition(true)
+                    toView!.alpha = 1
+                    toView!.backgroundColor = originalColor
+                    }, completion: { (_) in
+                        transitionContext.completeTransition(true)
                 })
             }
+
         } else {
-            let key = (transitionMode == .Pop) ? UITransitionContextToViewKey : UITransitionContextFromViewKey
-            let returningControllerView = transitionContext.viewForKey(key)!
-            let originalCenter = returningControllerView.center
-            let originalSize = returningControllerView.frame.size
-            let originalColor = returningControllerView.backgroundColor
-
-            bubble.frame = frameForBubble(originalCenter, size: originalSize, start: startingPoint)
-            bubble.layer.cornerRadius = bubble.frame.size.height / 2
-            bubble.center = startingPoint
-
-            UIView.animateWithDuration(0.3, animations: {
-                returningControllerView.backgroundColor = self.bubbleColor
-                }, completion: { (_) in
-                    UIView.animateWithDuration(self.duration, animations: {
-                        self.bubble.transform = CGAffineTransformMakeScale(0.001, 0.001)
-                        returningControllerView.transform = CGAffineTransformMakeScale(0.001, 0.001)
-                        returningControllerView.center = self.startingPoint
-                        returningControllerView.alpha = 0
+            let originalCenter = fromView!.center
+            let originalSize = fromView!.frame.size
+            let originalColor = fromView!.backgroundColor
+            
+            if bubble.superview == nil {
+                bubble.frame = frameForBubble(originalCenter, size: originalSize, start: startingPoint)
+                bubble.layer.cornerRadius = bubble.frame.size.height / 2
+                bubble.center = startingPoint
+                bubble.transform = CGAffineTransformMakeScale(0.001, 0.001)
+                bubble.backgroundColor = bubbleColor
+                fromView!.addSubview(bubble)
+                containerView.insertSubview(toView!, belowSubview: fromView!)
+                
+                UIView.animateWithDuration(self.duration, animations: {
+                    self.bubble.transform = CGAffineTransformIdentity
+                    fromView!.backgroundColor = self.bubbleColor
+                    
+                    }, completion: { (_) in
                         
-                        if self.transitionMode == .Pop {
-                            containerView.insertSubview(returningControllerView, belowSubview: returningControllerView)
-                            containerView.insertSubview(self.bubble, belowSubview: returningControllerView)
+                        UIView.animateWithDuration(0.3, animations: {
+                            self.bubble.alpha = 0.0
+                            fromView!.alpha = 0
+                            toView!.alpha = 1.0
+                        }) { (_) in
+                            fromView!.center = originalCenter
+                            fromView!.removeFromSuperview()
+                            self.bubble.removeFromSuperview()
+                            transitionContext.completeTransition(true)
                         }
-                    }) { (_) in
-                        returningControllerView.backgroundColor = originalColor
-                        returningControllerView.center = originalCenter
-                        returningControllerView.removeFromSuperview()
-                        self.bubble.removeFromSuperview()
-                        transitionContext.completeTransition(true)
-                    }
-            })
+                })
+                
+            } else {
+                UIView.animateWithDuration(0.3, animations: {
+                    fromView!.backgroundColor = self.bubbleColor
+                    }, completion: { (_) in
+                        UIView.animateWithDuration(self.duration, animations: {
+                            self.bubble.transform = CGAffineTransformMakeScale(0.001, 0.001)
+                            fromView!.transform = CGAffineTransformMakeScale(0.001, 0.001)
+                            fromView!.center = self.startingPoint
+                            fromView!.alpha = 0
+                        }) { (_) in
+                            fromView!.backgroundColor = originalColor
+                            fromView!.center = originalCenter
+                            fromView!.removeFromSuperview()
+                            self.bubble.removeFromSuperview()
+                            transitionContext.completeTransition(true)
+                        }
+                })
+            }
         }
     }
     
@@ -115,5 +135,4 @@ public class MMTransition: NSObject,UIViewControllerAnimatedTransitioning {
         self.init()
         self.duration = duration
     }
-
 }

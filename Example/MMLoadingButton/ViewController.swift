@@ -12,16 +12,9 @@ import MMLoadingButton
 class ViewController: UIViewController{
     @IBOutlet weak var txtAccount:UITextField!
     @IBOutlet weak var txtPwd:UITextField!
-
-    
     @IBOutlet weak var loadingBtn:MMLoadingButton!
-    @IBOutlet weak var seg:UISegmentedControl!
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Second") as? SecondViewController {
-            self.loadingBtn.addScuessPresentVC(vc)
-            
-        }
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -33,6 +26,10 @@ class ViewController: UIViewController{
     
     @IBAction func loadAction () {
         loadingBtn.startLoading()
+        if let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Second") as? SecondViewController {
+            self.loadingBtn.addScuessPresentVC(vc)
+            
+        }
         self.fakeResult()
     }
     

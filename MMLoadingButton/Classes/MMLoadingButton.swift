@@ -38,6 +38,8 @@ public class MMLoadingButton: UIButton {
     private var stateLayer:MMStateLayer!
     private var toVC:UIViewController!
     private var scuessTransition:MMTransition?
+    private var scuessDismissTransition:MMTransition?
+    
     private lazy var errorLabel:UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -82,8 +84,17 @@ public class MMLoadingButton: UIButton {
     }
     
     public func addScuessPresentVC(toVC:UIViewController) {
+        scuessDismissTransition = nil
         self.scuessTransition =  MMTransition(duration: 0.6)
         self.toVC = toVC
+    }
+    
+    public func addScuessWithDismissVC() {
+        if scuessTransition != nil {
+            NSException(name:"Transition Exist", reason:"Can't add dissmiss transition because of scuessTransition Exist .", userInfo:nil).raise()
+        }
+        
+        self.scuessDismissTransition = MMTransition(duration: 0.6)
     }
     
     public func startLoading() {
@@ -216,6 +227,10 @@ extension MMLoadingButton:MMStateLayerDelegate {
                     c()
                 }
             }
+        } else if let _ = self.scuessDismissTransition {
+            let current = UIViewController.currentViewController()
+            current.transitioningDelegate = self
+            current.dismissViewControllerAnimated(true, completion: nil)
         } else {
             self.setShrink(false,shrinkKey:"ShrinkScuess")
         }
@@ -232,11 +247,12 @@ extension MMLoadingButton:UIViewControllerTransitioningDelegate{
     }
     
     public func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        scuessTransition?.transitionMode = .Dismiss
-        scuessTransition?.startingPoint = self.center
-        scuessTransition?.bubbleColor = self.backgroundColor!
+        let transition = scuessTransition ?? scuessDismissTransition
+        transition?.transitionMode = .Dismiss
+        transition?.startingPoint = self.center
+        transition?.bubbleColor = self.backgroundColor!
         
-        if let t = self.scuessTransition{
+        if let t = transition{
             let duration = t.duration+0.2
             
             let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(duration*Double(NSEC_PER_SEC)))
@@ -245,6 +261,6 @@ extension MMLoadingButton:UIViewControllerTransitioningDelegate{
             }
         }
         
-        return scuessTransition
+        return transition
     }
 }

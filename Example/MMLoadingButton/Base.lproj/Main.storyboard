@@ -186,33 +186,7 @@
                                     </mask>
                                 </variation>
                                 <connections>
-                                    <action selector="loadAction" destination="vXZ-lx-hvc" eventType="touchUpInside" id="OgK-Ck-dm5"/>
                                     <action selector="scuessAction" destination="TnA-sM-sc1" eventType="touchUpInside" id="IMu-Oz-cjz"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPr-in-Uh8" customClass="MMLoadingButton" customModule="MMLoadingButton">
-                                <rect key="frame" x="20" y="103" width="560" height="40"/>
-                                <color key="backgroundColor" red="0.0" green="0.5450980392" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="560" id="px0-UA-XU7"/>
-                                    <constraint firstAttribute="height" constant="40" id="vKu-TN-Vri"/>
-                                </constraints>
-                                <state key="normal" title="ErrorMessage">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
-                                        <color key="value" red="1" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="px0-UA-XU7"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="errorMsgAction" destination="TnA-sM-sc1" eventType="touchUpInside" id="scG-5o-k4d"/>
-                                    <action selector="loadAction" destination="vXZ-lx-hvc" eventType="touchUpInside" id="mki-LT-f77"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0e-nG-tFx" customClass="MMLoadingButton" customModule="MMLoadingButton">
@@ -237,7 +211,50 @@
                                 </variation>
                                 <connections>
                                     <action selector="errorAction" destination="TnA-sM-sc1" eventType="touchUpInside" id="yZ9-I0-AOb"/>
-                                    <action selector="loadAction" destination="vXZ-lx-hvc" eventType="touchUpInside" id="t88-BG-d1s"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rPr-in-Uh8" customClass="MMLoadingButton" customModule="MMLoadingButton">
+                                <rect key="frame" x="20" y="103" width="560" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.5450980392" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="560" id="px0-UA-XU7"/>
+                                    <constraint firstAttribute="height" constant="40" id="vKu-TN-Vri"/>
+                                </constraints>
+                                <state key="normal" title="ErrorMessage">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
+                                        <color key="value" red="1" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="px0-UA-XU7"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="errorMsgAction" destination="TnA-sM-sc1" eventType="touchUpInside" id="scG-5o-k4d"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lse-Ww-VeX">
+                                <rect key="frame" x="20" y="487" width="560" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.5450980392" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="560" id="7II-La-mg2"/>
+                                    <constraint firstAttribute="height" constant="40" id="xT7-jG-oOI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="Present No Transition">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="7II-La-mg2"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="presentAction" destination="TnA-sM-sc1" eventType="touchUpInside" id="D0s-jn-URD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -245,9 +262,11 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="rPr-in-Uh8" secondAttribute="trailing" id="3hg-03-EyD"/>
                             <constraint firstAttribute="leadingMargin" secondItem="rPr-in-Uh8" secondAttribute="leading" id="3xY-FQ-gQl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Lse-Ww-VeX" secondAttribute="trailing" id="4Wk-mM-6eH"/>
                             <constraint firstItem="rPr-in-Uh8" firstAttribute="top" secondItem="5dj-dg-bqJ" secondAttribute="bottom" constant="8" id="80O-OA-IPU"/>
                             <constraint firstItem="rPr-in-Uh8" firstAttribute="top" secondItem="v0e-nG-tFx" secondAttribute="bottom" constant="14" id="8Aa-dY-Dzp"/>
                             <constraint firstAttribute="leadingMargin" secondItem="v0e-nG-tFx" secondAttribute="leading" id="8tc-gd-0BO"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Lse-Ww-VeX" secondAttribute="leading" id="Aou-SV-j3d"/>
                             <constraint firstAttribute="leadingMargin" secondItem="kNA-SB-lyv" secondAttribute="leading" id="HEn-9p-fL9"/>
                             <constraint firstAttribute="trailingMargin" secondItem="5dj-dg-bqJ" secondAttribute="trailing" id="Jwj-aG-rvC"/>
                             <constraint firstAttribute="trailingMargin" secondItem="kNA-SB-lyv" secondAttribute="trailing" id="OiC-va-jhx"/>
@@ -255,6 +274,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="5dj-dg-bqJ" secondAttribute="leading" id="WU1-Df-ALF"/>
                             <constraint firstItem="l5g-ud-mRt" firstAttribute="top" secondItem="kNA-SB-lyv" secondAttribute="bottom" constant="20" id="kNW-Jr-I2j"/>
                             <constraint firstItem="v0e-nG-tFx" firstAttribute="top" secondItem="rPr-in-Uh8" secondAttribute="bottom" constant="8" id="mh2-ma-gOW"/>
+                            <constraint firstItem="kNA-SB-lyv" firstAttribute="top" secondItem="Lse-Ww-VeX" secondAttribute="bottom" constant="23" id="nH3-4l-Wca"/>
                             <constraint firstItem="5dj-dg-bqJ" firstAttribute="top" secondItem="wv5-WC-5ow" secondAttribute="bottom" constant="35" id="pIg-lh-v8U"/>
                             <constraint firstAttribute="trailingMargin" secondItem="v0e-nG-tFx" secondAttribute="trailing" id="rx4-OC-0v1"/>
                         </constraints>
@@ -274,6 +294,71 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ez9-0u-qm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="942" y="323"/>
+        </scene>
+        <!--Thrid View Controller-->
+        <scene sceneID="Yb0-rW-835">
+            <objects>
+                <viewController storyboardIdentifier="Thrid" id="W5u-e5-QJN" customClass="ThridViewController" customModule="MMLoadingButton_Example" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vdL-qn-DFK"/>
+                        <viewControllerLayoutGuide type="bottom" id="swQ-1P-Ygc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Zj1-kN-7YP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Demo dismissViewController with custom transition" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPS-d5-GWz">
+                                <rect key="frame" x="20" y="20" width="560" height="109"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="109" id="SKV-3d-c8n"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PXo-xP-gCD" customClass="MMLoadingButton" customModule="MMLoadingButton">
+                                <rect key="frame" x="20" y="492" width="560" height="40"/>
+                                <color key="backgroundColor" red="0.0" green="0.5450980392" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="560" id="PCg-gp-WPN"/>
+                                    <constraint firstAttribute="height" constant="40" id="b0z-V0-pDl"/>
+                                </constraints>
+                                <state key="normal" title="dissMIss">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
+                                        <color key="value" red="1" green="0.38823529410000002" blue="0.38823529410000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="PCg-gp-WPN"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="dismissAction" destination="W5u-e5-QJN" eventType="touchUpInside" id="2iz-LK-ZWa"/>
+                                    <action selector="errorAction" destination="TnA-sM-sc1" eventType="touchUpInside" id="wqc-KJ-nxS"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="swQ-1P-Ygc" firstAttribute="top" secondItem="PXo-xP-gCD" secondAttribute="bottom" constant="68" id="Ahe-iy-HlB"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="zPS-d5-GWz" secondAttribute="trailing" id="Flm-M6-9pj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="PXo-xP-gCD" secondAttribute="trailing" id="R6U-Xs-xCs"/>
+                            <constraint firstItem="zPS-d5-GWz" firstAttribute="top" secondItem="vdL-qn-DFK" secondAttribute="bottom" id="Uxt-nn-Jcj"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="PXo-xP-gCD" secondAttribute="leading" id="WBo-Gx-orD"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="zPS-d5-GWz" secondAttribute="leading" id="tAa-nE-sMx"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scuess" destination="PXo-xP-gCD" id="NtE-9y-ydz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FUu-rL-DNn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1572" y="323"/>
         </scene>
     </scenes>
     <resources>

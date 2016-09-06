@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		270C46D31D7D42240061BF24 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 270C46D21D7D42240061BF24 /* SecondViewController.swift */; };
+		278E6E1D1D7EE93D009FC0C4 /* ThridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 278E6E1C1D7EE93D009FC0C4 /* ThridViewController.swift */; };
 		59C2B17D0C333E079CCC2DDE /* Pods_MMLoadingButton_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0421FB22A3066C0EAA8B3375 /* Pods_MMLoadingButton_Example.framework */; };
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACD81AFB9204008FA782 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD71AFB9204008FA782 /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		0421FB22A3066C0EAA8B3375 /* Pods_MMLoadingButton_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MMLoadingButton_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		270C46D21D7D42240061BF24 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		278E6E1C1D7EE93D009FC0C4 /* ThridViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThridViewController.swift; sourceTree = "<group>"; };
 		3CB8237D50F0D2048C68928B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		44271347F53608E8E70D651D /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		541E3D2B2CC9E41D10855262 /* MMLoadingButton.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MMLoadingButton.podspec; path = ../MMLoadingButton.podspec; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				270C46D21D7D42240061BF24 /* SecondViewController.swift */,
+				278E6E1C1D7EE93D009FC0C4 /* ThridViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
@@ -308,6 +311,7 @@
 			files = (
 				270C46D31D7D42240061BF24 /* SecondViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				278E6E1D1D7EE93D009FC0C4 /* ThridViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

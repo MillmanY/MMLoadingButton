@@ -16,13 +16,12 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
- 
+
         // Do any additional setup after loading the view.
     }
     
     @IBAction func scuessAction() {
         scuess.startLoading()
-        
         let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
         dispatch_after(delayTime, dispatch_get_main_queue()) {
             self.scuess.stopLoading(true, completed: {
@@ -33,7 +32,6 @@ class SecondViewController: UIViewController {
     
     @IBAction func errorAction() {
         error.startLoading()
-     
         let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
         dispatch_after(delayTime, dispatch_get_main_queue()) {
             self.error.stopLoading(false, completed: {
@@ -53,6 +51,13 @@ class SecondViewController: UIViewController {
         }
     }
     
+    
+    @IBAction func presentAction () {
+        if let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Thrid") as? ThridViewController {
+            self.presentViewController(vc, animated: true, completion: nil)
+        }
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -61,11 +66,7 @@ class SecondViewController: UIViewController {
     
 
     @IBAction func dismissAction () {
-        self.dismissViewControllerAnimated(true, completion: nil)
-        
-        self.dismissViewControllerAnimated(true) { 
-            
-        }
+        self.dismissViewControllerAnimated(true, completion: nil)        
     }
     /*
     // MARK: - Navigation
