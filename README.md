@@ -77,7 +77,11 @@ MMLoadingButton is available through [CocoaPods](http://cocoapods.org). To insta
 it, simply add the following line to your Podfile:
 
 ```ruby
+Swift3
 pod "MMLoadingButton"
+Swift 2.3
+pod ‘MMCardView’,:git => 'https://github.com/MillmanY/MMLoadingButton', :branch => ‘Swift2’
+
 ```
 
 ## Author
