@@ -26,17 +26,18 @@ class ViewController: UIViewController{
     
     @IBAction func loadAction () {
         loadingBtn.startLoading()
-        if let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Second") as? SecondViewController {
+
+        if let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Second") as? SecondViewController {
             self.loadingBtn.addScuessPresentVC(vc)
-            
         }
         self.fakeResult()
     }
     
     func fakeResult() {
         
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) {
+        let delayTime = DispatchTime.now() + .seconds(2)
+        
+        DispatchQueue.main.asyncAfter(deadline: delayTime) {
             if !self.txtAccount.text!.isEmpty && !self.txtPwd.text!.isEmpty {
                 self.loadingBtn.stopLoading(true, completed: {
                     print("Scuess Completed")
@@ -45,17 +46,15 @@ class ViewController: UIViewController{
                 self.loadingBtn.stopWithError("Account is Empty!!", hideInternal: 2, completed: {
                     print ("Fail Message Completed")
                 })
-
+                
             } else{
                 self.loadingBtn.stopWithError("Password is Empty!!", hideInternal: 2, completed: {
                     print ("Fail Message Completed")
                 })
-
+                
             }
+
         }
-        
     }
-    
-    
 }
 

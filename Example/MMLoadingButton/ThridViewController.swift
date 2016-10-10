@@ -25,9 +25,9 @@ class ThridViewController: UIViewController {
     
     @IBAction func dismissAction () {
         scuess.startLoading()
-        
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) {
+        let delayTime = DispatchTime.now() + .seconds(2)
+
+        DispatchQueue.main.asyncAfter(deadline: delayTime) {
             self.scuess.stopLoading(true, completed: {
                 print("Scuess Completed")
             })

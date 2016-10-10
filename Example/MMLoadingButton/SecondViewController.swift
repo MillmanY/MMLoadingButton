@@ -16,14 +16,15 @@ class SecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         // Do any additional setup after loading the view.
     }
     
     @IBAction func scuessAction() {
         scuess.startLoading()
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) {
+   
+        let delayTime = DispatchTime.now() + .seconds(2)
+        
+        DispatchQueue.main.asyncAfter(deadline: delayTime) {
             self.scuess.stopLoading(true, completed: {
                 print("Scuess Completed")
             })
@@ -32,8 +33,10 @@ class SecondViewController: UIViewController {
     
     @IBAction func errorAction() {
         error.startLoading()
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) {
+       
+        let delayTime = DispatchTime.now() + .seconds(2)
+        
+        DispatchQueue.main.asyncAfter(deadline: delayTime) {
             self.error.stopLoading(false, completed: {
                 print("Fail Completed")
             })
@@ -42,9 +45,10 @@ class SecondViewController: UIViewController {
     
     @IBAction func errorMsgAction() {
         errMsg.startLoading()
+     
+        let delayTime = DispatchTime.now() + .seconds(2)
         
-        let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(2 * Double(NSEC_PER_SEC)))
-        dispatch_after(delayTime, dispatch_get_main_queue()) {
+        DispatchQueue.main.asyncAfter(deadline: delayTime) {
             self.errMsg.stopWithError("Error !!", hideInternal: 2, completed: {
                 print ("Fail Message Completed")
             })
@@ -53,9 +57,11 @@ class SecondViewController: UIViewController {
     
     
     @IBAction func presentAction () {
-        if let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Thrid") as? ThridViewController {
-            self.presentViewController(vc, animated: true, completion: nil)
+    
+        if let vc = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "Thrid") as? ThridViewController {
+            self.present(vc, animated: true, completion: nil)
         }
+
     }
     
 
@@ -66,7 +72,7 @@ class SecondViewController: UIViewController {
     
 
     @IBAction func dismissAction () {
-        self.dismissViewControllerAnimated(true, completion: nil)        
+        self.dismiss(animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation
