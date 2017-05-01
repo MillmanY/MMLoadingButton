@@ -29,7 +29,7 @@ class MMStateLayer: CAShapeLayer {
     lazy var rotationAnimation:CABasicAnimation = {
         let animation = CABasicAnimation(keyPath:"transform.rotation.z")
         animation.fromValue  = (0)
-        animation.toValue    = (M_PI * 2);
+        animation.toValue    = (Double.pi * 2);
         animation.duration   = 0.7
         animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
         animation.repeatCount = HUGE;
@@ -59,8 +59,8 @@ class MMStateLayer: CAShapeLayer {
     }
     
     func setPath() {
-        let startAngle = 0 - M_PI_2 ;
-        let endAngle   = M_PI * 2 - M_PI_2;
+        let startAngle = 0 - Double.pi / 2 ;
+        let endAngle   = Double.pi * 2 - Double.pi / 2;
         let height = min(layerFrame.size.height, layerFrame.size.width)
         let radius = height/2
         let center = CGPoint(x: height/2, y: height/2)
